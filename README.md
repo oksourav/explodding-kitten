@@ -26,6 +26,8 @@ If you want to change Backend SERVER URL
 
 The configuration is available in `.env` file in the root directory. `REACT_APP_BACKEND_SERVER_URL`
 
+While taking code from Github if `.env` file is there then create on with the above configurations.
+
 ### Exploding Kitten Game Server
 
 For running the server application you need to install reddis client in your machine. The current implemention expects the redis to install running machine with default `port` & `URL`.
