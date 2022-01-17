@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+$hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
+$returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$black: #000000;
+$white: #ffffff;
+$accent: #4285f4;
+$gray: rgba($black, 0.6);
+$dark-gray: rgba($black, 0.8);
+$semibold: 500;
+$regular: 400;
+
+body {
+  background-size: 400% 400%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  .App {
+    .start-game-form-container {
+      position: relative;
+      width: 40%;
+      left: 30%;
+      background: #fff;
+      top: 100px;
+      display: flex;
+      border-radius: 5px;
+
+      .left-bar {
+        width: 20%;
+        background: #000;
+        border-radius: 5px 0 0 5px;
+      }
+      .form-content {
+        width: 80%;
+        background: #4285f4;
+        border-radius: 0 5px 5px 0;
+        .form-container {
+          margin: 100px 20px 50px 20px;
+          .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 0 20px;
+
+            label {
+              display: block;
+              margin: 0 0 10px;
+              color: #fff;
+              font-size: 12px;
+              font-weight: $semibold;
+              line-height: 1;
+              text-transform: uppercase;
+              letter-spacing: 0.2em;
+            }
+
+            input {
+              outline: none;
+              display: block;
+              background: rgba($black, 0.1);
+              width: 100%;
+              border: 0;
+              border-radius: 4px;
+              box-sizing: border-box;
+              padding: 12px 20px;
+              color: #fff;
+              font-family: inherit;
+              font-size: inherit;
+              font-weight: $semibold;
+              line-height: inherit;
+              transition: 0.3s ease;
+            }
+          }
+          .validation-message {
+            color: red;
+            margin: 0 0 10px 0;
+          }
+          .start-game {
+            width: 100%;
+            background: #fff;
+            font-weight: bold;
+            color: #000;
+            border: 0 none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 15px 10px;
+            &:hover,
+            :focus {
+              box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
+            }
+          }
+        }
+      }
+    }
+    .card-wrap-container {
+      display: flex;
+      justify-content: center;
+      .card-wrap {
+        margin: 10px;
+        transform: perspective(800px);
+        transform-style: preserve-3d;
+        cursor: pointer;
+        width: 240px;
+        height: 320px;
+        position: absolute;
+        top: 100px;
+        left: auto;
+        &:hover {
+          .card-info {
+            transform: translateY(0);
+          }
+          .card-info p {
+            opacity: 1;
+          }
+          .card-info,
+          .card-info p {
+            transition: 0.6s $hoverEasing;
+          }
+          .card-info:after {
+            transition: 5s $hoverEasing;
+            opacity: 1;
+            transform: translateY(0);
+          }
+          .card-bg {
+            transition: 0.6s $hoverEasing, opacity 5s $hoverEasing;
+            opacity: 0.8;
+          }
+          .card {
+            transition: 0.6s $hoverEasing, box-shadow 2s $hoverEasing;
+            box-shadow: rgba(white, 0.2) 0 0 40px 5px, rgba(white, 1) 0 0 0 1px,
+              rgba(black, 0.66) 0 30px 60px 0, inset #399fba 0 0 0 5px,
+              inset white 0 0 0 6px;
+          }
+        }
+
+        .card {
+          position: relative;
+          flex: 0 0 240px;
+          width: 240px;
+          height: 320px;
+          background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEnvnkDvA6alaBZMf8NcZlkxBn5xRYUIMMhA&usqp=CAU);
+          overflow: hidden;
+          border-radius: 10px;
+          box-shadow: rgba(#399fba, 0.66) 0 30px 60px 0, inset #399fba 0 0 0 5px,
+            inset rgba(white, 0.5) 0 0 0 6px;
+          transition: 1s $returnEasing;
+          box-shadow: 0 1px 1px #399fba, 0 10px 0 -5px #eee,
+            0 10px 1px -4px #399fba, 0 20px 0 -10px #eee,
+            0 20px 1px -9px #399fba;
+
+          .card-info {
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            .header {
+              h1 {
+                text-align: center;
+              }
+              p {
+                font-size: 18px;
+                color: #000;
+                background: #fff;
+                padding: 5px 10px;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .cards-left-to-withdraw {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      text-align: center;
+      left: auto;
+      top: 80px;
+      width: 100%;
+      font-weight: bold;
+      .label {
+        margin-right: 5px;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+      .value {
+        font-size: 18px;
+      }
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 30%;
+      margin: 100px 0 0 20px;
+    }
+    .highlight {
+      width: 45%;
+      margin: 10px 0 0 20px;
+      font-size: 24px;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    .loggedin-user {
+      background: cornflowerblue;
+      color: #fff;
+    }
+    .game-summary {
+      margin-top: 30px;
+      button {
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+  }
+}
